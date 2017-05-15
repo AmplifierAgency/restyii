@@ -3,7 +3,7 @@
 namespace Restyii\Controller;
 
 
-use Restyii\Utils\String;
+use Restyii\Utils\RestyiiString;
 
 class Model extends Base
 {

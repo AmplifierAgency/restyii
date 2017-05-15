@@ -5,7 +5,7 @@ namespace Restyii\Web;
 
 use CHttpRequest;
 use CUrlManager;
-use Restyii\Utils\String;
+use Restyii\Utils\RestyiiString;
 
 /**
  * # Resource Url Rules
@@ -86,7 +86,7 @@ class UrlRule extends \CBaseUrlRule
 
         $controller = array_shift($parts);
         if ($this->useDashes)
-            $controller = String::camelCaseToDashes($controller);
+            $controller = RestyiiString::camelCaseToDashes($controller);
 
         $segments[] = $controller;#
         $action = array_shift($parts);
@@ -105,7 +105,7 @@ class UrlRule extends \CBaseUrlRule
         if (isset($params['relation'])) {
             $relation = $params['relation'];
             unset($params['relation']);
-            $segments[] = ($this->useDashes ? String::camelCaseToDashes($relation) : $relation);
+            $segments[] = ($this->useDashes ? RestyiiString::camelCaseToDashes($relation) : $relation);
             $defaultItemAction = $this->defaultItemAction.'Related';
             $defaultCollectionAction = $this->defaultCollectionAction.'Related';
             if (isset($params[$this->relationIdName])) {
@@ -122,9 +122,9 @@ class UrlRule extends \CBaseUrlRule
         }
 
         if ($isItemAction && $action != $defaultItemAction)
-            $segments[] = '_'.($this->useDashes ? String::camelCaseToDashes($action) : $action);
+            $segments[] = '_'.($this->useDashes ? RestyiiString::camelCaseToDashes($action) : $action);
         else if (!$isItemAction && $action != $defaultCollectionAction)
-            $segments[] = '_'.($this->useDashes ? String::camelCaseToDashes($action) : $action);
+            $segments[] = '_'.($this->useDashes ? RestyiiString::camelCaseToDashes($action) : $action);
 
         if (isset($params['#'])) {
             $fragment = $params['#'];
@@ -187,7 +187,7 @@ class UrlRule extends \CBaseUrlRule
 
         while($part = array_shift($parts)) {
             if ($this->useDashes)
-                $p =  String::dashesToCamelCase($part);
+                $p =  RestyiiString::dashesToCamelCase($part);
             else
                 $p = $part;
 

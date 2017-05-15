@@ -2,7 +2,7 @@
 
 namespace Restyii\Action\Root;
 
-use Restyii\Utils\String;
+use Restyii\Utils\RestyiiString;
 
 class Error extends Base
 {

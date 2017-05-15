@@ -2,7 +2,7 @@
 
 namespace Restyii\Model;
 use CEvent;
-use Restyii\Utils\String;
+use Restyii\Utils\RestyiiString;
 
 /**
  * Base class for RESTful active records
@@ -46,7 +46,7 @@ abstract class ActiveRecord extends \CActiveRecord implements ModelInterface
     public function classLabel($plural = false)
     {
         if ($plural)
-            $label = String::humanize(String::pluralize(get_class($this)));
+            $label = RestyiiString::humanize(RestyiiString::pluralize(get_class($this)));
         else
             $label = get_class($this);
         return $this->generateAttributeLabel($label);

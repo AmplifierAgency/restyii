@@ -2,7 +2,7 @@
 
 namespace Restyii\Action\Root;
 
-use Restyii\Utils\String;
+use Restyii\Utils\RestyiiString;
 
 class Index extends Base
 {
@@ -93,7 +93,7 @@ class Index extends Base
                 continue;
 
            $links[$id] = array(
-                'title' =>  method_exists($controller, 'classLabel') ? $controller->classLabel(true) : String::pluralize(String::humanize(substr(get_class($controller), 0, -10))),
+                'title' =>  method_exists($controller, 'classLabel') ? $controller->classLabel(true) : RestyiiString::pluralize(RestyiiString::humanize(substr(get_class($controller), 0, -10))),
                 'href' => $controller->createUrl('search'),
             );
             if (method_exists($controller, 'classDescription'))

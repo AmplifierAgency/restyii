@@ -2,7 +2,7 @@
 
 namespace Restyii\Controller;
 
-use Restyii\Utils\String;
+use Restyii\Utils\RestyiiString;
 use \Restyii\Web\Response;
 use Yii;
 
@@ -26,8 +26,8 @@ class Base extends \CController
      */
     public function classLabel($plural = false)
     {
-        $humanized = String::humanize(substr(get_class($this), 0, -10));
-        return $plural ? String::pluralize($humanized) : $humanized;
+        $humanized = RestyiiString::humanize(substr(get_class($this), 0, -10));
+        return $plural ? RestyiiString::pluralize($humanized) : $humanized;
     }
 
     /**

@@ -8,7 +8,7 @@ namespace Restyii\Utils;
  * @author Charles Pick <charles@codemix.com>
  * @package Restyii\Utils
  */
-class String
+class RestyiiString
 {
     /**
      * Convert a camel case string to dashes
